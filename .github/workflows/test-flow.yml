@@ -1,9 +1,18 @@
 name: "Testing github actions"
 on: [push]
 jobs:
-  my-first-job:
+  setup-environment:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Hello World"
+      - name: Checkout the code
+        run: echo "Starting the World"
       - uses: actions/checkout@v4
-      - run: tree
+      - name: Setup bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+      - run: bun --version
+      - name: Installing dependencies
+        run: bun install
+      - name: Building the Project
+        run: bun build
