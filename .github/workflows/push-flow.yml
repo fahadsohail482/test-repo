@@ -15,4 +15,4 @@ jobs:
       - name: Installing dependencies
         run: bun install
       - name: Building the Project
-        run: bun build
+        run: bun run build
